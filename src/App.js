@@ -8,6 +8,7 @@ import Booking from "./components/pages/Booking";
 import Messages from "./components/pages/Messages";
 import Calendar from "./components/pages/Calendar";
 import Vaccine from "./components/pages/Vaccine";
+import NotFound from "./components/pages/NotFound";
 import "./app.css";
 
 export default class App extends Component {
@@ -18,13 +19,16 @@ export default class App extends Component {
         <main className="container">
           <Sidebar />
           <Switch>
-            <Route path="/booking" component={Booking} />
-            <Route path="/consultation" component={Consultation} />
-            <Route path="/vaccine" component={Vaccine} />
-            <Route path="/calendar" component={Calendar} />
+            <Route path="/bookings" component={Booking} />
+            <Route path="/bookings/:id" component={Dashboard} />
+            <Route path="/consultations" component={Consultation} />
+            <Route path="/vaccines" component={Vaccine} />
+            <Route path="/calendars" component={Calendar} />
             <Route path="/messages" component={Messages} />
             <Route from="/dashboard" component={Dashboard} />
-            <Redirect from="/" exact to={"dashboard"} />
+            <Route from="/not-found" component={NotFound} />
+            <Redirect from="/" exact to="dashboard" />
+            <Redirect to="/not-found" />
           </Switch>
         </main>
       </div>

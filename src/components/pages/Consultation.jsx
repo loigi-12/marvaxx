@@ -5,7 +5,7 @@ export default class Consultation extends Component {
   render() {
     return (
       <div className="consultation">
-        <h1>Consultation</h1>
+        <h2 className="title">Consultation</h2>
       </div>
     );
   }

@@ -18,32 +18,32 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <li className="sidebarListItem active">
               <Dashboard />
-              <Link className="sidebar-nav list-item" to="/dashboard">
+              <Link className="sidebar-nav list-item" to="/">
                 Dashboard
               </Link>
             </li>
             <li className="sidebarListItem">
               <Book />
-              <Link className="sidebar-nav list-item" to="/booking">
-                Booking
+              <Link className="sidebar-nav list-item" to="/bookings">
+                Bookings
               </Link>
             </li>
             <li className="sidebarListItem">
               <Medication />
-              <Link className="sidebar-nav list-item" to="/consultation">
-                Consultation
+              <Link className="sidebar-nav list-item" to="/consultations">
+                Consultations
               </Link>
             </li>
             <li className="sidebarListItem">
               <Vaccines />
-              <Link className="sidebar-nav list-item" to="/vaccine">
-                Vaccine
+              <Link className="sidebar-nav list-item" to="/vaccines">
+                Vaccines
               </Link>
             </li>
             <li className="sidebarListItem">
               <CalendarToday />
-              <Link className="sidebar-nav list-item" to="/calendar">
-                Calendar
+              <Link className="sidebar-nav list-item" to="/calendars">
+                Calendars
               </Link>
             </li>
             <li className="sidebarListItem">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { NotificationsNone, Language, Settings } from "@mui/icons-material/";
 import "./topbar.css";
 
@@ -7,7 +8,9 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">MarVaxx</span>
+          <span className="logo">
+            <Link to="/">MarVaxx</Link>
+          </span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
