@@ -1,0 +1,11 @@
+.page-container {
+  flex: 4;
+  margin: 15px 20px;
+}
+
+/* Bookings */
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
