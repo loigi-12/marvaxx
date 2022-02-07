@@ -8,7 +8,7 @@ import {
   CalendarToday,
   Message,
 } from "@mui/icons-material";
-import "./sidebar.css";
+import "../css/sidebar.css";
 
 export default function Sidebar() {
   return (

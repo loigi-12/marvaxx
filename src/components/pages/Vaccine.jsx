@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./vaccine.css";
+import "../../css/pages.css";
 
 export default class Vaccine extends Component {
   render() {
     return (
-      <div className="vaccine">
+      <div className="page-container">
         <h2 className="title">Vaccines</h2>
       </div>
     );

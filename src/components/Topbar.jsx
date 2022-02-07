@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NotificationsNone, Language, Settings } from "@mui/icons-material/";
-import "./topbar.css";
+import "../css/topbar.css";
 
 export default function Topbar() {
   return (

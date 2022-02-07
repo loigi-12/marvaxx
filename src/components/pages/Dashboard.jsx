@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./dashboard.css";
+import "../../css/pages.css";
 
 class Dashboard extends Component {
   render() {
     return (
-      <div className="dashboard">
+      <div className="page-container">
         <h2 className="title">Dashboard</h2>
       </div>
     );
