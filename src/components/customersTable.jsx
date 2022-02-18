@@ -4,27 +4,23 @@ import Table from "./common/table";
 
 class CustomersTable extends React.Component {
   columns = [
-    { path: "id", label: "ID" },
     {
-      path: "name",
-      label: "Name",
-      content: (customer) => (
-        <Link to={`/bookings/${customer._id}`}>{customer.name}</Link>
+      path: "title",
+      label: "Title",
+      content: (booking) => (
+        <Link to={`/bookings/${booking._id}`}>{booking.name}</Link>
       ),
     },
+    { path: "_id", label: "ID" },
+    { path: "name", label: "Name" },
     { path: "age", label: "Age" },
-    { path: "vaccine", label: "Vaccine" },
-    { path: "Schedule", label: "Schedule" },
-    { path: "address", label: "Address" },
-    { path: "status", label: "Status" },
-    { path: "phone", label: "Phone No." },
   ];
 
   deleteColumn = {
     key: "delete",
-    content: (customer) => (
+    content: (movie) => (
       <button
-        onClick={() => this.props.onDelete(customer)}
+        onClick={() => this.props.onDelete(movie)}
         className="btn btn-danger btn-sm"
       >
         Delete
@@ -33,12 +29,12 @@ class CustomersTable extends React.Component {
   };
 
   render() {
-    const { users, onSort, sortColumn } = this.props;
+    const { bookings, onSort, sortColumn } = this.props;
 
     return (
       <Table
         columns={this.columns}
-        data={users}
+        data={bookings}
         sortColumn={sortColumn}
         onSort={onSort}
       />

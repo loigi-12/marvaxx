@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../css/pages.css";
 
 export default class Calendar extends Component {
   render() {

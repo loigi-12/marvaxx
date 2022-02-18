@@ -2,16 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { getCustomers } from "./../../services/fakeCustomerService";
-import "../../css/pages.css";
 
 export default function Booking() {
   const [customers, setCustomers] = useState([]);
-  const [test, setTest] = useState([]);
 
   useEffect(() => {
     setCustomers(getCustomers());
-
-    setTest(getCustomers());
   });
 
   const columns = [
@@ -22,7 +18,7 @@ export default function Booking() {
       width: 140,
       renderCell: (customer) => {
         return (
-          <Link to={`/bookings/${customer.row._id}`}>{customer.row.name}</Link>
+          <Link to={`/customer/${customer.row._id}`}>{customer.row.name}</Link>
         );
       },
     },
@@ -35,9 +31,8 @@ export default function Booking() {
   ];
 
   return (
-    <div className="page-container" style={{ height: 400, width: "100%" }}>
+    <div className="page-container" style={{ height: "460px" }}>
       <h2 className="title">Booking</h2>
-
       <DataGrid
         rows={customers}
         columns={columns}

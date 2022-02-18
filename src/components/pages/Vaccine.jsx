@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../css/pages.css";
 
 export default class Vaccine extends Component {
   render() {

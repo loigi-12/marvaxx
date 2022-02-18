@@ -1,6 +1,6 @@
 const customers = [
   {
-    _id: 1,
+    _id: "1",
     name: "Loigi Deliguer",
     age: 23,
     vaccine: "Covid-19",
@@ -10,7 +10,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 2,
+    _id: "2",
     name: "Romnick Cailing",
     age: 24,
     vaccine: "Anti-Rabies",
@@ -20,7 +20,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 3,
+    _id: "3",
     name: "Donald Delumen",
     age: 23,
     vaccine: "Covid-19",
@@ -30,7 +30,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 4,
+    _id: "4",
     name: "Wilson S. Lago",
     age: 27,
     vaccine: "Covid-19",
@@ -40,7 +40,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 5,
+    _id: "5",
     name: "Nathaniel Orzales",
     age: 24,
     vaccine: "Covid-19",
@@ -50,7 +50,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 6,
+    _id: " 6",
     name: "Raymart Gallardo",
     age: 27,
     vaccine: "Covid-19",
@@ -60,7 +60,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 7,
+    _id: "7",
     name: "Ronald Quijada",
     age: 24,
     vaccine: "Covid-19",
@@ -70,7 +70,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 8,
+    _id: "8",
     name: "Mariel Malicse",
     age: 25,
     vaccine: "Covid-19",
@@ -80,7 +80,7 @@ const customers = [
     phone: "09387093842",
   },
   {
-    _id: 9,
+    _id: "9",
     name: "Jalique Diana",
     age: 28,
     vaccine: "Covid-19",
