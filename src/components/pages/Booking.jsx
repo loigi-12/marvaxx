@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import { getCustomers } from "./../../services/fakeCustomerService";
+import { getCustomers, deleteCustomer } from "../../services/customerService";
+import { getCategories } from "../../services/categoryService";
 
 export default function Booking() {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    setCustomers(getCustomers());
+    async function fetchCustomersAPI() {
+      const { data } = await getCustomers();
+      setCustomers(data);
+    }
+
+    fetchCustomersAPI();
   });
 
   const columns = [
@@ -26,7 +32,14 @@ export default function Booking() {
     { field: "vaccine", headerName: "Vaccine", width: 100 },
     { field: "schedule", headerName: "Schedule", width: 120 },
     { field: "address", headerName: "Address", width: 270 },
-    { field: "status", headerName: "Status", width: 90 },
+    {
+      field: "isBooked",
+      headerName: "Status",
+      width: 90,
+      renderCell: (customer) => {
+        return customer.row.isBooked ? "Booked" : "Pending";
+      },
+    },
     { field: "phone", headerName: "Phone #", width: 100 },
   ];
 
