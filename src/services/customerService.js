@@ -11,7 +11,7 @@ export function getCustomers() {
   return http.get(apiEndpoint);
 }
 
-export function getcustomer(customerId) {
+export function getCustomer(customerId) {
   return http.get(customerUrl(customerId));
 }
 
@@ -25,6 +25,6 @@ export function saveCustomer(customer) {
   return http.post(apiEndpoint, customer);
 }
 
-export function deletecustomer(customerId) {
+export function deleteCustomer(customerId) {
   return http.delete(customerUrl(customerId));
 }

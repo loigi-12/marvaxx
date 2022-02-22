@@ -33,11 +33,11 @@ export default function Booking() {
     { field: "schedule", headerName: "Schedule", width: 120 },
     { field: "address", headerName: "Address", width: 270 },
     {
-      field: "isBooked",
+      field: "status",
       headerName: "Status",
       width: 90,
       renderCell: (customer) => {
-        return customer.row.isBooked ? "Booked" : "Pending";
+        return customer.row.status ? "Booked" : "Pending";
       },
     },
     { field: "phone", headerName: "Phone #", width: 100 },

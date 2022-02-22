@@ -3,8 +3,7 @@ import { toast } from "react-toastify";
 import Joi from "joi-browser";
 import Form from "./common/form";
 
-import { getCustomer, saveCustomer } from "../services/fakeCustomerService";
-import { getCustomers } from "./../services/fakeCustomerService";
+import { getCustomer, saveCustomer } from "../services/customerService";
 
 class CustomerForm extends Form {
   state = {
@@ -31,28 +30,21 @@ class CustomerForm extends Form {
     phone: Joi.string().required().label("Phone Number"),
   };
 
-  populateCustomer() {
-    const customerId = this.props.match.params.id;
+  async populateCustomer() {
+    try {
+      const customerId = this.props.match.params.id;
+      if (customerId === "new") return;
 
-    console.log(customerId);
-
-    const { data: customer } = getCustomer(customerId);
-    this.setState({ data: this.mapToViewModel(customer) });
-
-    // try {
-    //   const customerId = this.props.match.params.id;
-    //   if (customerId === "new") return;
-
-    //   const { data: customer } = getCustomer(customerId);
-    //   this.setState({ data: this.mapToViewModel(customer) });
-    // } catch (ex) {
-    //   if (ex.response && ex.response.status === 404)
-    //     this.props.history.replace("/not-found");
-    // }
+      const { data: customer } = await getCustomer(customerId);
+      this.setState({ data: this.mapToViewModel(customer) });
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404)
+        this.props.history.replace("/not-found");
+    }
   }
 
-  componentDidMount() {
-    this.populateCustomer();
+  async componentDidMount() {
+    await this.populateCustomer();
   }
 
   mapToViewModel(customer) {
@@ -68,8 +60,8 @@ class CustomerForm extends Form {
     };
   }
 
-  doSubmit = () => {
-    // saveCustomer(this.state.data);
+  doSubmit = async () => {
+    await saveCustomer(this.state.data);
     toast.success("Customer created successfully.");
 
     this.props.history.push("/bookings");
