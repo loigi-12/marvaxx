@@ -73,6 +73,7 @@ class CustomerForm extends Form {
         <h1>Customer Form</h1>
         <form onSubmit={this.handleSubmit} style={{ width: "50%" }}>
           {this.renderInput("name", "Name")}
+          {this.renderInput("age", "Age")}
           {this.renderInput("vaccine", "Vaccine")}
           {this.renderInput("schedule", "Schedule")}
           {this.renderInput("address", "Address")}

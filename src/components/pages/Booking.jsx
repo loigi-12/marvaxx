@@ -36,15 +36,15 @@ export default function Booking() {
       field: "status",
       headerName: "Status",
       width: 90,
-      renderCell: (customer) => {
-        return customer.row.status ? "Booked" : "Pending";
-      },
     },
     { field: "phone", headerName: "Phone #", width: 100 },
   ];
 
   return (
     <div className="page-container" style={{ height: "460px" }}>
+      <Link to="/customer/new" style={{ marginBottom: 20 }}>
+        Add new customer
+      </Link>
       <h2 className="title">Booking</h2>
       <DataGrid
         rows={customers}

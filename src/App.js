@@ -9,7 +9,6 @@ import Consultation from "./components/pages/Consultation";
 import Booking from "./components/pages/Booking";
 import CustomerForm from "./components/customerForm";
 import Messages from "./components/pages/Messages";
-import Calendar from "./components/pages/Calendar";
 import Vaccine from "./components/pages/Vaccine";
 import NotFound from "./components/pages/NotFound";
 // import "bootstrap/dist/css/bootstrap.css";
@@ -29,7 +28,6 @@ export default class App extends Component {
             <Route path="/customer/:id" component={CustomerForm} />
             <Route path="/consultations" component={Consultation} />
             <Route path="/vaccines" component={Vaccine} />
-            <Route path="/calendars" component={Calendar} />
             <Route path="/messages" component={Messages} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/not-found" component={NotFound} />
