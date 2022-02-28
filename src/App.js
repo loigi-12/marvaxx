@@ -6,6 +6,7 @@ import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/pages/Dashboard";
 import Consultation from "./components/pages/Consultation";
+import ConsultationForm from "./components/consultationForm";
 import Booking from "./components/pages/Booking";
 import CustomerForm from "./components/customerForm";
 import Messages from "./components/pages/Messages";
@@ -27,6 +28,7 @@ export default class App extends Component {
             <Route path="/bookings" component={Booking} />
             <Route path="/customer/:id" component={CustomerForm} />
             <Route path="/consultations" component={Consultation} />
+            <Route path="/consultation/:id" component={ConsultationForm} />
             <Route path="/vaccines" component={Vaccine} />
             <Route path="/messages" component={Messages} />
             <Route path="/dashboard" component={Dashboard} />

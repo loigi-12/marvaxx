@@ -75,7 +75,7 @@ class CustomerForm extends Form {
           {this.renderInput("name", "Name")}
           {this.renderInput("age", "Age")}
           {this.renderInput("vaccine", "Vaccine")}
-          {this.renderInput("schedule", "Schedule")}
+          {this.renderInput("schedule", "Schedule", "date")}
           {this.renderInput("address", "Address")}
           {this.renderInput("status", "Status")}
           {this.renderInput("phone", "Phone #")}
