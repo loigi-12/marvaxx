@@ -67,7 +67,7 @@ class ConsultationForm extends Form {
     await saveConsultation(this.state.data);
     toast.success("Consultation created successfully.");
 
-    this.props.history.push("/bookings");
+    this.props.history.push("/consultations");
   };
 
   render() {
@@ -78,7 +78,7 @@ class ConsultationForm extends Form {
           {this.renderInput("name", "Name")}
           {this.renderInput("age", "Age")}
           {this.renderInput("purpose", "Purpose")}
-          {this.renderInput("dateOfInquiry", "Date", "date")}
+          {this.renderInput("dateOfInquiry", "Date", "datetime-local")}
           {this.renderInput("address", "Address")}
           {this.renderInput("phone", "Phone #")}
           {this.renderInput("message", "Message")}

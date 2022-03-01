@@ -11,6 +11,7 @@ import Booking from "./components/pages/Booking";
 import CustomerForm from "./components/customerForm";
 import Messages from "./components/pages/Messages";
 import Vaccine from "./components/pages/Vaccine";
+import VaccineForm from "./components/vaccineForm";
 import NotFound from "./components/pages/NotFound";
 // import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,6 +31,9 @@ export default class App extends Component {
             <Route path="/consultations" component={Consultation} />
             <Route path="/consultation/:id" component={ConsultationForm} />
             <Route path="/vaccines" component={Vaccine} />
+            <Route path="/vaccine/:id" component={VaccineForm} />
+            <Route path="/categories" component={VaccineForm} />
+            <Route path="/category/:id" component={VaccineForm} />
             <Route path="/messages" component={Messages} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/not-found" component={NotFound} />

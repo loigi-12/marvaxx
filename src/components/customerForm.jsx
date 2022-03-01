@@ -4,6 +4,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 
 import { getCustomer, saveCustomer } from "../services/customerService";
+import { getVaccines } from "./../services/vaccineService";
 
 class CustomerForm extends Form {
   state = {
@@ -16,6 +17,7 @@ class CustomerForm extends Form {
       status: "",
       phone: "",
     },
+    vaccines: [],
     errors: {},
   };
 
@@ -29,6 +31,11 @@ class CustomerForm extends Form {
     status: Joi.string().required().label("Status"),
     phone: Joi.string().required().label("Phone Number"),
   };
+
+  async populateVaccines() {
+    const { data: vaccines } = await getVaccines();
+    this.setState({ vaccines });
+  }
 
   async populateCustomer() {
     try {
@@ -44,6 +51,7 @@ class CustomerForm extends Form {
   }
 
   async componentDidMount() {
+    await this.populateVaccines();
     await this.populateCustomer();
   }
 
@@ -62,7 +70,10 @@ class CustomerForm extends Form {
 
   doSubmit = async () => {
     await saveCustomer(this.state.data);
-    toast.success("Customer created successfully.");
+
+    this.props.match.params.id === "new"
+      ? toast.success("Customer Created successfully.")
+      : toast.success("Customer Updated successfully.");
 
     this.props.history.push("/bookings");
   };
@@ -74,8 +85,8 @@ class CustomerForm extends Form {
         <form onSubmit={this.handleSubmit} style={{ width: "50%" }}>
           {this.renderInput("name", "Name")}
           {this.renderInput("age", "Age")}
-          {this.renderInput("vaccine", "Vaccine")}
-          {this.renderInput("schedule", "Schedule", "date")}
+          {this.renderSelect("vaccine", "Vaccine", this.state.vaccines)}
+          {this.renderInput("schedule", "Schedule", "datetime-local")}
           {this.renderInput("address", "Address")}
           {this.renderInput("status", "Status")}
           {this.renderInput("phone", "Phone #")}
