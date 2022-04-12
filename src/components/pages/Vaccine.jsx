@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { DataGrid } from "@mui/x-data-grid";
 import { getVaccines, deleteVaccine } from "../../services/vaccineService";
 
@@ -14,6 +15,23 @@ export default function Vaccine() {
 
     fetchVaccinesAPI();
   });
+
+  const handleDelete = async (vaccine) => {
+    const originalVaccines = vaccines;
+    // const _vaccines = vaccines.filter((c) => c._id !== vaccine._id);
+    // setVaccines(_vaccines);
+
+    try {
+      await deleteVaccine(vaccine._id);
+
+      toast.info(`Vaccine \"${vaccine.name}\" deleted successfully.`);
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) {
+        toast.error("This post has already been deleted.");
+      }
+      setVaccines({ vaccines: originalVaccines });
+    }
+  };
 
   const columns = [
     { field: "_id", headerName: "ID", flex: 1 },
@@ -34,6 +52,14 @@ export default function Vaccine() {
       },
     },
     { field: "numberInStock", headerName: "Stock", flex: 1 },
+    {
+      field: "action",
+      headerName: "Action",
+      flex: 1,
+      renderCell: (params) => {
+        return <button onClick={() => handleDelete(params.row)}>Delete</button>;
+      },
+    },
   ];
 
   return (

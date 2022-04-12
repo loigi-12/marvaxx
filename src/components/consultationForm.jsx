@@ -74,7 +74,11 @@ class ConsultationForm extends Form {
     return (
       <div className="page-container">
         <h1>Consultation Form</h1>
-        <form onSubmit={this.handleSubmit} style={{ width: "50%" }}>
+        <form
+          onSubmit={this.handleSubmit}
+          style={{ width: "50%" }}
+          className="form"
+        >
           {this.renderInput("name", "Name")}
           {this.renderInput("age", "Age")}
           {this.renderInput("purpose", "Purpose")}

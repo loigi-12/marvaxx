@@ -81,7 +81,6 @@ export default function Consultation() {
         Add new Consultation
       </Link>
       <h2 className="title">Consultations</h2>
-      <h2 className="title">Consultations</h2>
       <DataGrid
         rows={consultations}
         columns={columns}
